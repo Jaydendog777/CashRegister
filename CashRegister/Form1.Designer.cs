@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.shopLabel = new System.Windows.Forms.Label();
             this.reciptLabel = new System.Windows.Forms.Label();
             this.rugbyBallCount = new System.Windows.Forms.Label();
@@ -302,8 +303,10 @@
             this.Controls.Add(this.rugbyBallCount);
             this.Controls.Add(this.reciptLabel);
             this.Controls.Add(this.shopLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "RugbyShop";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 
 namespace CashRegister
 {
@@ -188,6 +189,9 @@ namespace CashRegister
 
         private void printButton_Click(object sender, EventArgs e)
         { // Clears recipt and gets ready to print text
+            SoundPlayer player = new SoundPlayer(Properties.Resources.print);
+            player.Play();
+
             reciptLabel.Text = "";
             reciptNameLabel.Text = "Rugby Shop";
             Thread.Sleep(1000);
@@ -232,6 +236,7 @@ namespace CashRegister
             reciptLabel.Text += $"\nChange   {changeDue.ToString("C")}";
             Thread.Sleep(1000);
             this.Refresh();
+            player.Stop();
 
         }
 
@@ -283,5 +288,12 @@ namespace CashRegister
             reciptLabel.Text += $"\nPairs of Rugby Cleats - {rugbyCleatsPrice.ToString("C")}";
             reciptLabel.Text += $"\nRugby Jerseys - {rugbyJerseyPrice.ToString("C")}";
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+
